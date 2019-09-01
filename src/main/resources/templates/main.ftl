@@ -6,7 +6,11 @@
     <@l.logout/>
     <span><a href="/user">user list</a></span>
 </div>
+<div>
+   <span>Эта страница видна всем пользователям</span>
 
+
+</div>
 <div>
     <form method="post">
         <input type="text" name="text" placeholder="Введите сообщение">
@@ -20,25 +24,6 @@
 </div>
 
 
-<div>Список сообщений</div>
-<form method="get" action="/main">
-    <input type="text" name="filter" value="${filter}">
-
-    <button type="submit">Найти</button>
 
 
-</form>
 
-<#list messages as message>
-<div>
-    <B>${message.id}</B>
-    <SPAN>${message.text}</SPAN>
-    <i>${message.tag}</i>
-    <strong>${(message.author.username)!"&lt;none&gt;"}</strong>
-
-</div>
-<#else>
-No messages
-</#list>
-
-</@c.page>
