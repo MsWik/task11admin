@@ -3,10 +3,14 @@ package by.peleng.task11.domain;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.annotation.Generated;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Set;
+
+
 
 @Entity
 @Table(name = "usr")
@@ -14,7 +18,13 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @NotNull
+    @Size(min = 2, max = 14)
     private String username;
+
+    @NotNull
+    @Size(min = 2)
     private String password;
     private boolean active;
 
@@ -30,6 +40,7 @@ public class User implements UserDetails {
     public void setId(Long id) {
         this.id = id;
     }
+
 
     public String getUsername() {
         return username;
